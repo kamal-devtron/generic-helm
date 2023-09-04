@@ -1,0 +1,10 @@
+
+git_branch: nats-autocd-separate-subject
+location: scripts/sql/
+repo_url: https://github.com/devtron-labs/devtron-enterprise.git
+db_type: postgres
+db_host: postgresql-postgresql.devtroncd
+db_port: "5432"
+db_name: orchestrator
+db_user: postgres
+version: "0"

@@ -1,0 +1,103 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "default": {},
+    "title": "Root Schema",
+    "required": [
+        "git_branch",
+        "location",
+        "repo_url",
+        "db_type",
+        "db_host",
+        "db_port",
+        "db_name",
+        "version",
+        "db_user"
+    ],
+    "properties": {
+        "git_branch": {
+            "type": "string",
+            "default": "",
+            "title": "The git_branch Schema",
+            "examples": [
+                "nats-autocd-separate-subject"
+            ]
+        },
+        "location": {
+            "type": "string",
+            "default": "",
+            "title": "The location Schema",
+            "examples": [
+                "scripts/sql/"
+            ]
+        },
+        "repo_url": {
+            "type": "string",
+            "default": "",
+            "title": "The repo_url Schema",
+            "examples": [
+                "https://github.com/devtron-labs/devtron-enterprise.git"
+            ]
+        },
+        "db_type": {
+            "type": "string",
+            "default": "",
+            "title": "The db_type Schema",
+            "examples": [
+                "postgres"
+            ]
+        },
+        "db_host": {
+            "type": "string",
+            "default": "",
+            "title": "The db_host Schema",
+            "examples": [
+                "postgresql-postgresql.devtroncd"
+            ]
+        },
+        "db_port": {
+            "type": "string",
+            "default": "",
+            "title": "The db_port Schema",
+            "examples": [
+                "5432"
+            ]
+        },
+        "db_name": {
+            "type": "string",
+            "default": "",
+            "title": "The db_name Schema",
+            "examples": [
+                "orchestrator"
+            ]
+        },
+        "version": {
+            "type": "string",
+            "default": "",
+            "title": "The version Schema",
+            "examples": [
+                "0"
+            ]
+        },
+        "db_user": {
+            "type": "string",
+            "default": "",
+            "title": "The db_user Schema",
+            "examples": [
+                "postgres"
+            ]
+        }
+    },
+    "examples": [{
+        "git_branch": "nats-autocd-separate-subject",
+        "location": "scripts/sql/",
+        "repo_url": "https://github.com/devtron-labs/devtron-enterprise.git",
+        "db_type": "postgres",
+        "db_host": "postgresql-postgresql.devtroncd",
+        "db_port": "5432",
+        "db_name": "orchestrator",
+        "version": "0",
+        "db_user": "postgres"
+    }]
+}

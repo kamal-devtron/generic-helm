@@ -1,0 +1,60 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+annotations:
+name: db-change
+namespace: devtroncd
+spec:
+activeDeadlineSeconds: 1500
+ttlSecondsAfterFinished: 600
+backoffLimit: 20
+completions: 1
+parallelism: 1
+suspend: false
+template:
+metadata:
+  labels:
+    component: postgresql-migrate-devtron
+spec:
+  containers:
+    - env:
+        - name: GIT_BRANCH
+          value: {{ .Values.git_branch }}
+        - name: SCRIPT_LOCATION
+          value: {{ .Values.location }}
+        - name: GIT_REPO_URL
+          value: {{ .Values.repo_url }}
+        - name: DB_TYPE
+          value: {{ .Values.db_type }}
+        - name: DB_USER_NAME
+          value: {{ .Values.db_user }}
+        - name: DB_HOST
+          value: {{ .Values.db_host }}
+        - name: DB_PORT
+          value: {{ .Values.db_port }}
+        - name: DB_NAME
+          value: {{ .Values.db_name }}
+        - name: MIGRATE_TO_VERSION
+          value: "{{ .Values.version }}"
+      envFrom:
+        - secretRef:
+            name: postgres-creds-3
+        - configMapRef:
+            name: git-hash-migrator
+        - secretRef:
+            name: migrator-secret-3
+      image: quay.io/devtron/migrator:ec1dcab8-133-12932
+      imagePullPolicy: IfNotPresent
+      name: postgresql-migrate-devtron
+      resources: {}
+      securityContext:
+        allowPrivilegeEscalation: false
+        runAsNonRoot: true
+        runAsUser: 1000
+  restartPolicy: OnFailure
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 1000
+    runAsGroup: 1000
+    runAsUser: 1000
+  terminationGracePeriodSeconds: 30
