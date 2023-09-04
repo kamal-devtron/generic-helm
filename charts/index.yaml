@@ -3,7 +3,17 @@ entries:
   job:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-09-04T17:23:23.588599+05:30"
+    created: "2023-09-04T17:49:14.336803+05:30"
+    description: A Helm chart for Kubernetes
+    digest: 3ac65ffe0848ba125f47d4be45e0ce91a908b320593ea618cff79b1e0edd4c4d
+    name: job
+    type: application
+    urls:
+    - job-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-09-04T17:49:14.336555+05:30"
     description: A Helm chart for Kubernetes
     digest: 31aca4e76a90cfa9059e9573e843882f44d60798a5ee6593b7d75e382767a8fb
     name: job
@@ -11,4 +21,4 @@ entries:
     urls:
     - job-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-04T17:23:23.587829+05:30"
+generated: "2023-09-04T17:49:14.335955+05:30"
